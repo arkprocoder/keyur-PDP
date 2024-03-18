@@ -33,17 +33,35 @@
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>
             </li>
+
+            {% if user.is_authenticated %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                Authentication
+                Welcome {{user.first_name}} {{user.last_name}}
               </a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="/signup">Signup</a>
-                <a class="dropdown-item" href="/login">Login</a>
-                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/logout">Logout</a>
               </div>
             </li>
+            {% else %}
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                Signup
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/signup">Signup</a>
+                <a class="dropdown-item" href="/login">Login</a>            
+              </div>
+            </li>
+
+
+            {% endif %}
+
+           
+
+
+
            
           </ul>
           <form class="form-inline my-2 my-lg-0">
